@@ -4,6 +4,9 @@ CREATE TABLE ARTICOLO (
     Descrizione varchar(255) not null ,
     Prezzo int not null ,
     Venduto boolean not null
+    Id_asta int REFERENCES ASTA(Id_asta)
+        ON UPDATE CASCADE
+        ON DELETE NO ACTION,
     );
 
 CREATE TABLE ASTA (
