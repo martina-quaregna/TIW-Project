@@ -18,22 +18,6 @@ CREATE TABLE ASTA (
     Chiusa boolean not null
 );
 
-CREATE TABLE ASTA_CHIUSA (
-    Id_asta int REFERENCES ASTA(Id_asta)
-        ON UPDATE CASCADE
-        ON DELETE NO ACTION,
-    Nome_aggiudicatario varchar(45) REFERENCES UTENTE(Nome_utente)
-        ON UPDATE CASCADE
-        ON DELETE NO ACTION,
-    Prezzo_finale int REFERENCES ASTA(Offerta_massima)
-        ON UPDATE CASCADE
-        ON DELETE NO ACTION,
-    Indririzzo_spedizione varchar(100) REFERENCES UTENTE(Indirizzo)
-        ON UPDATE CASCADE
-        ON DELETE NO ACTION,
-    PRIMARY KEY(Id_asta, Nome_aggiudicatario)
-);
-
 CREATE TABLE OFFERTA (
     Id_asta int REFERENCES ASTA(Id_asta)
         ON UPDATE CASCADE
@@ -49,7 +33,7 @@ CREATE TABLE OFFERTA (
 CREATE TABLE UTENTE (
     Nome varchar(45) not null ,
     Cognome varchar(45) not null ,
-    Nome_utente varchar(45) not null ,
+    Nome_utente varchar(45) not null UNIQUE,
     Password varchar(45) not null,
     Indirizzo varchar(100) not null ,
     User_id int PRIMARY KEY
