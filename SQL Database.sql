@@ -3,15 +3,16 @@ CREATE TABLE ARTICOLO (
     Nome varchar(45) not null ,
     Descrizione varchar(255) not null ,
     Prezzo int not null ,
-    Venduto boolean
+    Venduto boolean not null
     );
 
 CREATE TABLE ASTA (
     Id_asta int PRIMARY KEY ,
     Prezzo_iniziale integer not null ,
     Rialzo_minimo integer not null ,
-    Scadenza datetime ,
-    Offerta_massima integer not null
+    Scadenza datetime not null,
+    Offerta_massima integer not null , 
+    Chiusa boolean not null
 );
 
 CREATE TABLE ASTA_CHIUSA (
@@ -37,8 +38,8 @@ CREATE TABLE OFFERTA (
     Nome_utente varchar(45) REFERENCES UTENTE(Nome_utente)
         ON UPDATE CASCADE
         ON DELETE NO ACTION,
-    Prezzo_offerto int not null,
-    Data_ora datetime,
+    Prezzo_offerto int not null ,
+    Data_ora datetime not null ,
     PRIMARY KEY (Id_asta, Nome_utente)
 );
 
