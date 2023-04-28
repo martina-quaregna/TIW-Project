@@ -12,7 +12,10 @@ CREATE TABLE ASTA (
     Rialzo_minimo integer not null ,
     Scadenza datetime not null,
     Offerta_massima integer not null , 
-    Chiusa boolean not null
+    Chiusa boolean not null, 
+    User_id int REFERENCES UTENTE(User_id)
+        ON UPDATE CASCADE
+        ON DELETE NO ACTION,
 );
 
 CREATE TABLE ARTICOLOASTA (
