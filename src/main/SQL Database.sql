@@ -34,12 +34,12 @@ CREATE TABLE OFFERTA (
     Id_asta int REFERENCES ASTA(Id_asta)
         ON UPDATE CASCADE
         ON DELETE NO ACTION,
-    Nome_utente varchar(45) REFERENCES UTENTE(Nome_utente)
+    User_id varchar(45) REFERENCES UTENTE(User_id)
         ON UPDATE CASCADE
         ON DELETE NO ACTION,
     Prezzo_offerto int not null ,
     Data_ora datetime not null ,
-    PRIMARY KEY (Id_asta, Nome_utente)
+    PRIMARY KEY (Id_asta, User_id)
 );
 
 CREATE TABLE UTENTE (
