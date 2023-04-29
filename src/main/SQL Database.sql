@@ -48,7 +48,7 @@ CREATE TABLE UTENTE (
     Nome_utente varchar(45) not null UNIQUE,
     Password varchar(45) not null,
     Indirizzo varchar(100) not null ,
-    User_id int PRIMARY KEY
+    User_id int AUTO_INCREMENT PRIMARY KEY
 );
 
 
