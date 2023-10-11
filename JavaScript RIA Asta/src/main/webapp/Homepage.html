@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Insert title here</title>
+
+<script src="aste.js" charset="utf-8" defer></script>
+<script src="utils.js" charset="utf-8" defer></script>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+</head>
+<body>	
+
+	<!-- PAGINA ACQUISTO -->	
+	<div id="id_paginaAcquisto">
+		<div class="w3-bar w3-black" style="position:sticky;top: 0;right: 0;left: 0;z-index: 1030;">
+			<a id="id_goToVendo"  class="w3-bar-item w3-button w3-mobile"><i class="material-icons">sell</i> VENDO </a>
+			<a href="Logout"  class="w3-bar-item w3-button w3-mobile w3-right"><i class="material-icons">logout</i> LOGOUT</a>
+		</div>
+		
+		<div class="w3-container">
+		<h2>Bentornato <span id="id_username"></span>!</h2>
+		<h3 style="color: red;" id="id_alert" class="alertmessage"></h3>
+			
+		<h1>PAGINA ACQUISTO</h1>
+		<!-- offerte aggiudicate -->
+		<h2>OFFERTE AGGIUDICATE</h2>
+		<div class="w3-panel">
+			<ul id="id_offerteAggAcq" class="w3-ul"> 
+			</ul>
+		</div>
+		
+		<h2>FORM RICERCA</h2>
+		<div class="w3-panel">
+		<form id="id_ricercaKeyword" action="#">
+			<input id="id_keyword" type="text" name="keyword" placeholder="inserisci parola chiave" required class="w3-input w3-border w3-animate-input" style="width:50%"> 
+			<input type="button" name="Cerca keyword" value="Cerca" class="w3-button w3-black">
+		</form>
+		</div>
+		
+		<!-- aste aperte -->
+		<h2 id="id_asteAperteKeyword">ASTE APERTE</h2>
+		<h4 id="id_asteAperteNotFound" class="w3-text-red"></h4>
+		<table id="id_asteAperteKeywordAcq" class="w3-table-all">
+			<thead>
+				<tr>
+					<th>Codice</th>
+					<th>Prezzo iniziale</th>
+					<th>Rialzo minimo</th>
+					<th>Scadenza</th>
+					<th>Offerta massima </th>
+					<th>Pagina offerta link </th>
+				</tr>
+			</thead>
+			<tbody id="id_astaAperteKeywordAcqBody" >
+			</tbody>
+		</table>
+		
+	
+
+		<!-- PAGINA OFFERTA -->
+		<h3 style="color: red;" id="id_alertCreaOff" class="alertmessage"></h3><br>
+		<div id="id_pagOff">
+			<!-- LISTA OFFERTE -->
+			<h1  class="w3-text-green"> PAGINA OFFERTA </h1>
+			
+			<h2 id="id_offertePagOff" >LISTA OFFERTE</h2>
+			<h4 id="id_offertePagOffNotFound" class="w3-text-red"></h4>
+			<div class="w3-panel">
+			<table id="id_listaOffertePagOff" class="w3-table-all" style="width: 100%;">
+				<thead>
+					<tr>
+						<th>Utente numero </th>
+						<th>Prezzo offerto </th>
+						<th>Data e ora dell'offerta </th>
+					</tr>
+				</thead>
+				<tbody id="id_listaOffertePagOffBody" >
+				</tbody>
+			</table>
+			</div>
+			
+			<!-- FORM CREA OFFERTA -->
+			<h2 id="id_inserisciOfferta">INSERISCI LA TUA OFFERTA</h2>
+			<div class="w3-panel">
+			<form id="id_inserisciOffertaForm" action="#">
+				<input id="id_offertaInserita" name="PrezzoOfferto" type=number placeholder="100" required class="w3-input w3-border"/> 
+				<input type="hidden" name="idAsta"  id="id_astaId"> 
+				<p id="id_rialzoMinimoOff"></p>
+				<input type="button" name="Inserisci offerta" value="Invia" class="w3-button w3-black"/>
+			</form>
+			</div>
+			
+			<!-- DATI ARTICOLI ASTA -->
+			<h2 id="id_articoliPagOff">LISTA ARTICOLI</h2>
+			<h4 id="id_articoliPagOffNotFound" class="w3-text-red"></h4>
+			<div class="w3-panel">
+			<table id="id_articoliTabPagOff"  class="w3-table-all" style="width: 100%;">
+				<thead>
+					<tr>
+						<th>Codice</th>
+						<th>Nome</th>
+						<th>Descrizione</th>
+						<th>Prezzo</th>
+						<th>Immagine</th>
+					</tr>
+				</thead>
+				<tbody id="id_articoliTabPagOffBody" >
+				</tbody>
+			</table>
+			</div>
+		</div>
+		</div>
+	</div>
+		
+	<!-- VENDO -->
+	<div id="id_paginaVendo">
+		<div class="w3-bar w3-black" style="position:sticky;top: 0;right: 0;left: 0;z-index: 1030;">
+			<a id="id_goToAcquisto"  class="w3-bar-item w3-button w3-mobile"><i class="material-icons">shopping_cart</i> ACQUISTO </a>
+			<a href="Logout"  class="w3-bar-item w3-button w3-mobile w3-right"><i class="material-icons">logout</i> LOGOUT</a>
+		</div>
+		
+		<div class="w3-container">
+		<h2>Bentornato <span id="id_usernameV"></span>!</h2>
+		<h3 style="color: red;" id="id_alert" class="alertmessage"></h3>
+		
+		<h1>PAGINA VENDO</h1>
+		
+		<h2 id="id_creaArticolo">CREA ARTICOLO</h2>
+		<div class="w3-panel w3-card-4">
+	    <form id="id_creaArticoloForm" action="#" enctype="multipart/form-data">
+	        <input id="id_nomeArticoloVendo" type="text" name="Nome" placeholder="Nome articolo" required class="w3-input w3-animate-input" style="width:50%"/>
+	        <input id="id_descrizioneArticoloVendo" type="text" name="Descrizione" placeholder="Descrizione" required class="w3-input w3-animate-input" style="width:50%"/>
+	        <input id="id_prezzoArticoloVendo" type=number name="Prezzo" placeholder="Prezzo" required class="w3-input w3-animate-input" style="width:50%"/>       
+	        <div class="upImmagineDropzone">
+	        	<label>Aggiungi immagine:</label>
+	        	<input type="file" name="Immagine" class="fileUploadInput" />
+	        </div>
+	        <input type="button" name="CreaArticoloVendo" value="Crea articolo" class="w3-btn w3-black"><br>
+	        <h3 style="color: red;" id="id_alertCreaArt" class="alertmessage"></h3><br>
+	    </form>
+	    </div>
+	
+	    <h2 id="id_creaAsta">CREA ASTA</h2>
+	    <div class="w3-panel w3-card-4">
+		<form id="id_creaAstaForm" action="#">
+			<input id="id_rialzoMinimoCA" type="number" name="Rialzo_minimo" placeholder="Rialzo Minimo" required class="w3-input w3-animate-input" style="width:50%"/> <br>
+			<label>Scadenza:</label>
+			<input id="id_scadenzaCA" type="datetime-local" name="Scadenza" value="" required> <br>
+			<label>Articoli disponibili:</label>
+			<div id="id_articoliDisponibiliCA">
+					<input id="id_articoloCA" type="checkbox" name="articolo" >
+					<p id="id_nomeArticoloCA"></p>
+			</div> <br>
+			<input type="button" value="Crea asta" class="w3-btn w3-black"/><br>
+			<h3 style="color: red;" id="id_alertCreaAsta" class="alertmessage"></h3><br>
+		</form>
+		</div>
+
+		<input type="hidden" name="idAsta"  id="id_astaId"> 
+	    <!-- aste non ancora chiuse appartenenti allo user in sessione -->
+	    <h2>ASTE NON CHIUSE </h2>
+	   	<h4 id="id_asteNonChiuseNotFound" class="w3-text-red"></h4>
+	    <div class="w3-panel">
+	    	<ul id="id_asteUserNonChiuseVendo" class="w3-ul">
+	   		</ul>
+   		</div>
+
+	
+	    <!-- aste chiuse appartenenti allo user in sessione -->
+	    <h2>ASTE CHIUSE</h2>
+	    <h4 id="id_asteChiuseNotFound" class="w3-text-red"></h4>
+	    <div class="w3-panel">
+	    	<ul id="id_asteUserChiuseVendo"  class="w3-ul">
+	   		</ul>
+		</div>
+		
+	    <!-- dettaglio asta sia aperta  -->
+	    <div id="id_dettaglioAsta">
+		    <h1>DETTAGLIO ASTA</h1>
+			<!-- dati asta: -->
+			<div class="w3-panel w3-card-4">
+				<ul class="w3-ul">
+					<li id="id_astaIdDettAsta"  class="w3-panel"></li>
+					<li id="id_prezzoInizialeDettAsta"  class="w3-panel"></li>
+					<li id="id_rialzoMinimoDettAsta"  class="w3-panel"></li>
+					<li id="id_scadenzaDettAsta" class="w3-panel"></li>
+					<li id="id_offertaMassimaDettAsta" class="w3-panel"></li>
+					<li id="id_isChiusaDettAsta" class="w3-panel"></li>
+				</ul>
+			</div>
+			
+			<!-- DATI ARTICOLI ASTA -->
+			<h2 id="id_articoliDettAsta">LISTA ARTICOLI</h2>
+			<div class="w3-panel">
+			<table id="id_articoliTabDettAsta" class="w3-table-all">
+				<thead>
+					<tr>
+						<th>Codice</th>
+						<th>Nome</th>
+						<th>Descrizione</th>
+						<th>Prezzo</th>
+						<th>Immagine</th>
+					</tr>
+				</thead>
+				<tbody id="id_articoliTabDettAstaBody" >
+				</tbody>
+			</table>
+			</div>
+			
+			<div id="id_chiusa" class="w3-panel">
+				<h4 id="id_aggNotFound" class = "w3-xlarge"></h4>
+		    	<ul class="w3-ul">
+			    	<li id="id_aggiudicatarioDettAsta"  class="w3-panel"></li>
+			    	<li id="id_prezzoFinDettAsta"  class="w3-panel"></li>
+			    	<li id="id_indirizzoDettAsta" class="w3-panel"></li>
+		    	</ul>
+		    </div>
+		    			 
+		    <h3 style="color: red;" id="id_alertChiudi" class="alertmessage"></h3><br>
+
+		    <div id="id_aperta" class="w3-panel">
+			    <!-- bottone chiusura asta scaduta -->
+			    <input type="button" name="Chiudi Asta" value="Chiudi Asta" class="w3-button w3-black"> 
+			    
+			    <h3 id="id_offerteDettAsta">LISTA OFFERTE</h3>
+			    <h4 id="id_offerteDettNotFound"></h4>
+				<table id="id_listaOfferteDettAsta"  class="w3-table-all">
+					<thead>
+						<tr>
+							<th>Nome utente </th>
+							<th>Prezzo offerto </th>
+							<th>Data e ora dell'offerta </th>
+						</tr>
+					</thead>
+					<tbody id="id_listaOfferteDettAstaBody" >
+					</tbody>
+				</table>
+		    </div>
+		</div>	
+		</div>
+   </div>
+    
+    
+    <br>
+    <br>
+    <br>
+
+</body>
+</html>
