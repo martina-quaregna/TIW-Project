@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Registrazione</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+</head>
+<body>
+
+	<div class="w3-bar w3-black" style="position:sticky;top: 0;right: 0;left: 0;z-index: 1030;">
+		<a href="index.jsp"  class="w3-bar-item w3-button w3-mobile"><i class="material-icons">arrow_back</i> LOGIN PAGE</a>
+	</div>
+
+<h1>Pagina di registrazione</h1>
+	<div id="Registrazione" class="w3-container">
+		<h3>Registrazione:</h3>
+		<form action="CreateUser" method="POST" class="w3-panel w3-card-4">
+			<input id="Nome" type="text" name ="Nome" placeholder="Nome" required class="w3-input"> 
+			<input id="Cognome" type="text" name ="Cognome" placeholder="Cognome" required class="w3-input"> 
+			<input id="Nickname" type="text" name ="Nickname" placeholder="Nickname" required class="w3-input">
+			<input id="Password" type="text" name ="Password" placeholder="Password" required class="w3-input"> 
+			<input id="Indirizzo" type="text" name ="Indirizzo" placeholder="Indirizzo" required class="w3-input"> <br>					
+			<input id="submit" type="submit" value="Invio" class="w3-btn w3-black"> <br><br>
+		</form>
+	</div>
+
+</body>
+</html>
